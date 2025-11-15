@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "payment-server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "payment-server.js"
+    },
+    {
+      "src": "/payment-success",
+      "dest": "payment-server.js"
+    },
+    {
+      "src": "/health",
+      "dest": "payment-server.js"
+    }
+  ],
+  "env": {
+    "SQUARE_ACCESS_TOKEN": "@square_access_token",
+    "SQUARE_LOCATION_ID": "@square_location_id",
+    "SQUARE_ENVIRONMENT": "@square_environment",
+    "SMTP_HOST": "@smtp_host",
+    "SMTP_PORT": "@smtp_port",
+    "SMTP_SECURE": "@smtp_secure",
+    "SMTP_USER": "@smtp_user",
+    "SMTP_PASS": "@smtp_pass",
+    "SMTP_FROM": "@smtp_from",
+    "ADMIN_EMAIL": "@admin_email",
+    "BASE_URL": "@base_url"
+  }
+}
